@@ -1,7 +1,45 @@
 {% extends '_layout' %}
 
 {% block main %}
-<div class="container">
-CATEGORIES Page
+    <header class="masthead" style="background-image: url('/img/home-bg-new.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>My Crafty Blog</h1>
+              <span class="subheading">On and about Craft CMS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          {% for entry in craft.entries.section('blog').relatedTo(category).all() %}
+
+
+          <div class="post-preview">
+            <a href="{{entry.url}}">
+              <h2 class="post-title">
+              {{entry.title}}
+              </h2>
+              <h3 class="post-subtitle">
+              {{entry.blogIntroduction}}
+              </h3>
+              {{entry.blogBody}}
+            </a>
+            <p class="post-meta">Posted by
+              <a href="#">{{entry.author}}</a>
+              on {{entry.postDate | date('M d, Y')}}</p>
+          </div>
+          <hr>
+          {% endfor %}
 </div>
+</div>
+</div>
+
 {% endblock %}

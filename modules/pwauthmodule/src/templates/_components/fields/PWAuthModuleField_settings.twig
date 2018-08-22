@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * PWAuth module for Craft CMS
+ *
+ * PWAuthModuleField Field Settings
+ *
+ * @author    Steve Halford
+ * @copyright Copyright (c) 2018 Steve Halford
+ * @link      github.com/playwellsteve
+ * @package   PWAuthModule
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("modules\\pwauthmodule\\assetbundles\\pwauthmodule\\PWAuthModuleAsset") %}
+
+{{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}}

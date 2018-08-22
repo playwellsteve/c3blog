@@ -14,7 +14,7 @@
                 <a href="#">{{entry.author}}</a>
                 on {{entry.postDate | date('M d, Y')}} in
                 {% for category in entry.category %}
-                <a href="/categories/{{category.slug}}">{{category}}</a>&nbsp;
+                <a href="{{category.url}}">{{category}}</a>&nbsp;
                {% endfor %}
                 </span>
             </div>
@@ -24,12 +24,19 @@
     </header>
 
     <!-- Post Content -->
-    <article>
+    <article
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
           {{entry.blogBody}}
            </div>
+           {% if entry.blogImage.exists %}
+           <p>There are related assets</p>
+           {% endif %}
+          {%set rel = entry.blogImage.one() %}
+          <div class="col-lg-8 col-md-10 mx-auto">
+          <img src="{{rel.getUrl('crop400by300')}}" alt="">
+          </div>
         </div>
       </div>
     </article>

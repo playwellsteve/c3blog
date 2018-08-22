@@ -1,0 +1,24 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * PWAuth module for Craft CMS 3.x
+ *
+ * PWAuthModuleField Field Input
+ *
+ * @author    Steve Halford
+ * @copyright Copyright (c) 2018 Steve Halford
+ * @link      github.com/playwellsteve
+ * @package   PWAuthModule
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+        label: 'Some Field',
+        instructions: 'Enter some text here.',
+        id: name,
+        name: name,
+        value: value})
+}}

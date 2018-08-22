@@ -1,0 +1,11 @@
+<h1>{{ craft.pWAuthModule.exampleVariable() }}</h1>
+
+{%  set authLevel = craft.pWAuthModule.authLevel %}
+{% if authLevel == 'Manager' %}
+    <h2>Hello Manager</h2>
+    {%  elseif authLevel == 'Instructor' %}
+    <h2>Hello Instructor</h2>
+    {% else %}
+    <h2>You must log in</h2>
+
+{% endif %}
